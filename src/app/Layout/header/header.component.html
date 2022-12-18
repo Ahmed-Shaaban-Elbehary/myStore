@@ -1,6 +1,13 @@
 <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <div class="container align-content-center">
+    <a class="navbar-brand" href="#">
+      <img
+        src="assets/images/logo.png"
+        alt="Bootstrap"
+        width="30"
+        height="24"
+      />
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -12,13 +19,18 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div
+      class="collapse navbar-collapse text-center"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/productlist">Products</a>
+          <a class="nav-link" routerLink="/cart">
+            <i class="fa-solid fa-cart-shopping-fast text-black"></i> Cart
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Cart</a>
+          <a class="nav-link" routerLink="/productlist">Products</a>
         </li>
       </ul>
     </div>
