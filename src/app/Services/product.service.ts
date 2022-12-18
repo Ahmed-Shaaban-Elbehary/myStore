@@ -12,4 +12,8 @@ export class ProductService {
   getProducts() {
     return this.http.get<IProduct[]>(this.baseUrl);
   }
+
+  addToCart() {
+
+  }
 }

@@ -15,32 +15,27 @@
         </p>
       </div>
       <div class="col-7">
-        <form>
-          <div class="row">
-            <div class="col-4 my-2">
-              <i
-                class="fa-solid fa-plus me-3 pointer"
-                (click)="Increment()"
-              ></i>
-              <i class="fa-solid fa-minus pointer" (click)="Decrement()"></i>
-            </div>
-            <div class="col-5">
-              <input
-                type="text"
-                value="0"
-                class="form-control d-inline"
-                name="Quantity"
-                [(ngModel)]="Quantity"
-              />
-            </div>
-            <div class="col-2 my-2">
-              <i
-                type="submit"
-                class="fa-solid fa-1x fa-cart-plus text-primary pointer"
-              ></i>
-            </div>
+        <div class="row">
+          <div class="col-4 my-2">
+            <i class="fa-solid fa-plus me-3 pointer" (click)="Increment()"></i>
+            <i class="fa-solid fa-minus pointer" (click)="Decrement()"></i>
           </div>
-        </form>
+          <div class="col-5">
+            <input
+              type="text"
+              value="0"
+              class="form-control d-inline"
+              name="Quantity"
+              [(ngModel)]="Quantity"
+            />
+          </div>
+          <div class="col-2 my-2">
+            <i
+              class="fa-solid fa-1x fa-cart-plus text-primary pointer"
+              (click)="AddToCart(product)"
+            ></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
