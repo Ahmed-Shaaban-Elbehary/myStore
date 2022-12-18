@@ -1,0 +1,9 @@
+<section class="section-products mx-5">
+  <div class="row">
+    <app-product-item
+      class="col-4"
+      *ngFor="let product of productList"
+      [product]="product"
+    ></app-product-item>
+  </div>
+</section>
