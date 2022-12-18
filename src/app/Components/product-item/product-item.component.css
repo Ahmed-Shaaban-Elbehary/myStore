@@ -1,3 +1,9 @@
 .pointer {
   cursor: pointer;
 }
+
+.fa-cart-plus:hover {
+  font-size: 20px;
+  transition: 0.2s;
+
+}

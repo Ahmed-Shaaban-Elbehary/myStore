@@ -9,10 +9,27 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CartComponent implements OnInit {
   items: ICart[] = [];
+  totalPrice: number = 0;
+  fullName: string = '';
+  Address: string = '';
+  creditNumber: string = '';
   constructor(private cartService: CartService) {
 
   }
   ngOnInit(): void {
     this.items = this.cartService.getCartItems();
+    for (let index = 0; index < this.items.length; index++) {
+      const element = this.items[index];
+      this.totalPrice += element.price * element.quantities;
+    }
+  }
+  Increment() {
+
+  }
+  Decrement() {
+
+  }
+  OnSubmit() {
+
   }
 }

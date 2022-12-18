@@ -33,7 +33,7 @@ export class ProductItemComponent {
       quantities: this.Quantity
     }
     this.cartSerivce.addToCart(cart)
-    this.resetQuantity;
+    this.resetQuantity();
   }
 
   resetQuantity() {
