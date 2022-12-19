@@ -1,46 +1,39 @@
-<div class="card my-3">
+<div class="card my-3 border-0">
   <a routerLink="/productItemDetails/{{ product.id }}">
-    <img
-      src="{{ product.url }}"
-      class="card-img-top"
-      alt="{{ product.name }}"
-    />
+    <img src="{{ product.url }}" class="card-img" alt="{{ product.name }}" />
   </a>
   <div class="card-body">
     <div class="row">
-      <div class="col-5">
+      <div class="col-8">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">
           {{ product.description }}
         </p>
       </div>
-      <div class="col-7">
-        <div class="row">
-          <p class="p-0 m-0">
-            Price<strong class="ms-1">{{ product.price }}</strong>
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-4 my-2">
-            <i class="fa-solid fa-plus me-3 pointer" (click)="Increment()"></i>
-            <i class="fa-solid fa-minus pointer" (click)="Decrement()"></i>
-          </div>
-          <div class="col-5">
-            <input
-              type="text"
-              value="0"
-              class="form-control d-inline"
-              name="Quantity"
-              [(ngModel)]="Quantity"
-            />
-          </div>
-          <div class="col-2 my-2">
-            <i
-              class="fa-solid fa-1x fa-cart-plus text-primary pointer"
-              (click)="AddToCart(product)"
-            ></i>
-          </div>
-        </div>
+      <div class="col-4">
+        <p class="p-0 m-0">
+          Price<strong class="ms-1">{{ product.price }}</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <span
+          ><i class="fa-solid fa-plus me-3 pointer" (click)="Increment()"></i>
+          <i class="fa-solid fa-minus pointer" (click)="Decrement()"></i
+        ></span>
+        <input
+          type="text"
+          value="0"
+          class="form-control d-inline w-50 ms-2"
+          name="Quantity"
+          [(ngModel)]="Quantity"
+        />
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-primary" (click)="AddToCart(product)">
+          <i class="fa-solid fa-cart-plus me-1"></i>Add To Cart
+        </button>
       </div>
     </div>
   </div>

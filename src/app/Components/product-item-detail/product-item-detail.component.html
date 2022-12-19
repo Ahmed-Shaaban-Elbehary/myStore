@@ -1,1 +1,9 @@
-<p>product-item-detail works!</p>
+<section class="section-products mx-5">
+  <div class="row d-flex justify-content-center">
+    <app-product-item
+      class="col-lg-4 col-md-6 col-sm-12"
+      *ngFor="let item of product"
+      [product]="item"
+    ></app-product-item>
+  </div>
+</section>

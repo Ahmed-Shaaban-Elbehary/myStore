@@ -1,92 +1,91 @@
-<div class="row">
-  <div *ngIf="items.length == 0; else display">
-    <img
-      src="assets/images/empty-shopping.png"
-      alt="empty-shopping"
-      class="h-100 w-100"
-    />
-  </div>
-  <ng-template #display>
-    <div class="col-6">
-      <div *ngFor="let item of items">
-        <div class="card mb-3" style="max-width: 540px">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img
-                src="{{ item.url }}"
-                class="img-fluid rounded-start"
-                alt="{{ item.url }}"
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text">
-                  {{ item.description }}
-                </p>
-                <div class="card-text">
-                  <div class="row">
-                    <div class="col-4 my-2">
-                      <i
-                        class="fa-solid fa-plus me-3 pointer"
-                        (click)="Increment()"
-                      ></i>
-                      <i
-                        class="fa-solid fa-minus pointer"
-                        (click)="Decrement()"
-                      ></i>
-                    </div>
-                    <div class="col-5">
-                      <input
-                        type="text"
-                        value="0"
-                        class="form-control d-inline"
-                        name="item.Quantity"
-                      />
-                    </div>
-                  </div>
+<section class="section-cart">
+  <div class="row">
+    <div class="h-100 w-100" *ngIf="items.length == 0; else display">
+      <div class="row align-items-center">
+        <div class="col-6 text-right">
+          <img src="assets/images/empty-cart.png" alt="empty-cart" />
+        </div>
+        <div class="col-6 text-left">
+          <h1 class="display-1">Empty Cart</h1>
+          <p>
+            Looks like you have not added anythin to your cart<br />Go ahead &
+            explore top categories
+          </p>
+        </div>
+      </div>
+    </div>
+    <ng-template #display>
+      <div class="col-6">
+        <p class="text-center h3">
+          Total Price :
+          <strong class="ms-2">{{ totalPrice | number : "1.2-2" }}</strong>
+        </p>
+        <div *ngFor="let item of items">
+          <div class="card mb-3 border-0" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="{{ item.url }}"
+                  class="img-fluid"
+                  alt="{{ item.url }}"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  <p class="card-text">
+                    {{ item.description }}
+                  </p>
+                  <span>
+                    Amount: <strong>{{ item.qty }}</strong></span
+                  >
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-6">
-      <p class="mb-5">
-        Total Price :
-        <strong class="ms-2">{{ totalPrice | number : "1.2-2" }}</strong>
-      </p>
-      <form (ngSubmit)="OnSubmit()">
-        <div class="mb-3">
-          <label class="form-label">Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="fullName"
-            [(ngModel)]="fullName"
-          />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Address</label>
-          <input
-            type="text"
-            class="form-control"
-            name="Address"
-            [(ngModel)]="Address"
-          />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Address</label>
-          <input
-            type="text"
-            maxlength="16"
-            class="form-control"
-            name="creditNumber"
-            [(ngModel)]="creditNumber"
-          />
-        </div>
-      </form>
-    </div>
-  </ng-template>
-</div>
+      <div class="col-6">
+        <form (ngSubmit)="OnSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="fullName"
+              minlength="3"
+              [(ngModel)]="fullName"
+              placeholder="(minimum 3 characters)"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Address"
+              [(ngModel)]="Address"
+              minlength="6"
+              placeholder="(minimum 6 characters)"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input
+              type="text"
+              minlength="16"
+              class="form-control"
+              name="creditNumber"
+              [(ngModel)]="creditNumber"
+              placeholder="(16-digit number)"
+            />
+            <div class="form-text">
+              We'll never share your payment details with anyone else.
+            </div>
+          </div>
+          <input type="submit" class="btn btn-success" />
+        </form>
+      </div>
+    </ng-template>
+  </div>
+</section>

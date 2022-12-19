@@ -4,5 +4,5 @@ export interface ICart {
   price: number,
   url: string,
   description: string,
-  quantities: number
+  qty: number
 }

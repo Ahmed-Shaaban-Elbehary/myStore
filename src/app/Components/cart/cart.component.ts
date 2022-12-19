@@ -1,6 +1,9 @@
 import { ICart } from './../../Models/icart';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart.service';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/Models/user';
 
 @Component({
   selector: 'app-cart',
@@ -13,23 +16,26 @@ export class CartComponent implements OnInit {
   fullName: string = '';
   Address: string = '';
   creditNumber: string = '';
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+    private router: Router,
+    private userService: UserService) {
 
   }
   ngOnInit(): void {
     this.items = this.cartService.getCartItems();
-    for (let index = 0; index < this.items.length; index++) {
-      const element = this.items[index];
-      this.totalPrice += element.price * element.quantities;
+    for (let i = 0; i < this.items.length; i++) {
+      this.totalPrice += this.items[i].price * this.items[i].qty;
     }
   }
-  Increment() {
 
-  }
-  Decrement() {
-
-  }
   OnSubmit() {
+    let user: User = {
+      name: this.fullName,
+      address: this.Address,
+      credit: Number(this.creditNumber)
+    };
 
+    this.userService.postUser(user);
+    this.router.navigate(["/confirm"]);
   }
 }

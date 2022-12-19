@@ -24,16 +24,22 @@ export class ProductItemComponent {
   }
 
   AddToCart(product: IProduct) {
-    const cart: ICart = {
-      id: product.id,
-      name: product.name,
-      url: product.url,
-      price: product.price,
-      description: product.description,
-      quantities: this.Quantity
+    if (this.Quantity > 0) {
+      const cart: ICart = {
+        id: product.id,
+        name: product.name,
+        url: product.url,
+        price: product.price,
+        description: product.description,
+        qty: this.Quantity
+      }
+      this.cartSerivce.addToCart(cart)
+      this.resetQuantity();
+      alert("Item Added To Cart Successfully!")
     }
-    this.cartSerivce.addToCart(cart)
-    this.resetQuantity();
+    else {
+      alert("Please Select Min One Item!")
+    }
   }
 
   resetQuantity() {
