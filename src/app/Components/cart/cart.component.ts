@@ -32,7 +32,8 @@ export class CartComponent implements OnInit {
     let user: User = {
       name: this.fullName,
       address: this.Address,
-      credit: Number(this.creditNumber)
+      credit: Number(this.creditNumber),
+      totalPayed: this.totalPrice
     };
 
     this.userService.postUser(user);

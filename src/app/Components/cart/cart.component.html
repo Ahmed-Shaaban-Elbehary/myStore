@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="col-6">
-        <form (ngSubmit)="OnSubmit()">
+        <form (ngSubmit)="OnSubmit()" #form="ngForm">
           <div class="mb-3">
             <label class="form-label">Full Name</label>
             <input
@@ -54,6 +54,7 @@
               class="form-control"
               name="fullName"
               minlength="3"
+              required
               [(ngModel)]="fullName"
               placeholder="(minimum 3 characters)"
             />
@@ -66,6 +67,7 @@
               name="Address"
               [(ngModel)]="Address"
               minlength="6"
+              required
               placeholder="(minimum 6 characters)"
             />
           </div>
@@ -74,6 +76,7 @@
             <input
               type="text"
               minlength="16"
+              required
               class="form-control"
               name="creditNumber"
               [(ngModel)]="creditNumber"
@@ -83,7 +86,11 @@
               We'll never share your payment details with anyone else.
             </div>
           </div>
-          <input type="submit" class="btn btn-success" />
+          <input
+            type="submit"
+            [disabled]="form.invalid"
+            class="btn btn-success"
+          />
         </form>
       </div>
     </ng-template>

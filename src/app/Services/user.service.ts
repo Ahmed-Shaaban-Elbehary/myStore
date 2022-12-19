@@ -13,7 +13,8 @@ export class UserService {
     this.user = {
       name: user.name,
       address: user.address,
-      credit: user.credit
+      credit: user.credit,
+      totalPayed: user.totalPayed
     }
   }
 }
