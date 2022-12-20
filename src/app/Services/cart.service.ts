@@ -9,7 +9,18 @@ export class CartService {
   constructor() { }
 
   addToCart(cart: ICart) {
-    this.cartItems.push(cart);
+    let item = this.cartItems.find(i => i.id == cart.id);
+    if (item != undefined) {
+      for (let index = 0; index < this.cartItems.length; index++) {
+        const element = this.cartItems[index];
+        if (element.id == cart.id) {
+          element.qty += cart.qty
+        }
+      }
+      console.log(this.cartItems);
+    } else {
+      this.cartItems.push(cart);
+    }
   }
 
   getCartItems() {
