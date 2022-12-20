@@ -17,7 +17,6 @@ export class CartService {
           element.qty += cart.qty
         }
       }
-      console.log(this.cartItems);
     } else {
       this.cartItems.push(cart);
     }
