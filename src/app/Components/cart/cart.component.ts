@@ -49,12 +49,12 @@ export class CartComponent implements OnInit {
     })
   }
   validateName() {
-
+    console.log("validate name")
   }
   Increment() {
-
+    console.log("increment")
   }
   Decrement() {
-
+    console.log("decrement")
   }
 }

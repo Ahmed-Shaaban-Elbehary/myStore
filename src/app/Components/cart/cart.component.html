@@ -40,24 +40,28 @@
                   <p class="card-text">
                     {{ item.description }}
                   </p>
-                  <div class="col-3">
-                    <input
-                      class="form-control"
-                      type="text"
-                      [(ngModel)]="totalAmount"
-                      (ngModelChange)="validateName()"
-                    />
+                  <div class="row">
+                    <div class="col-6">
+                      <input
+                        class="form-control"
+                        type="text"
+                        [(ngModel)]="totalAmount"
+                        (ngModelChange)="validateName()"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <span style="vertical-align: -webkit-baseline-middle"
+                        ><i
+                          class="fa-solid fa-plus me-3 pointer"
+                          (click)="Increment()"
+                        ></i>
+                        <i
+                          class="fa-solid fa-minus pointer"
+                          (click)="Decrement()"
+                        ></i
+                      ></span>
+                    </div>
                   </div>
-                  <span
-                    ><i
-                      class="fa-solid fa-plus me-3 pointer"
-                      (click)="Increment()"
-                    ></i>
-                    <i
-                      class="fa-solid fa-minus pointer"
-                      (click)="Decrement()"
-                    ></i
-                  ></span>
                 </div>
               </div>
             </div>
