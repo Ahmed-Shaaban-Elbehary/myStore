@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## definition 
 (myStore) is a good task to start with angular, including all angular fundamentals, concepts, and tricks.
+
 consists of product list with cart page and pay forms.
 
 using components, models, routing, services, layout, httpClient, form, validation, rxjs.
