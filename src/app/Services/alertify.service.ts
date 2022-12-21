@@ -8,9 +8,12 @@ export class AlertifyService {
   constructor() { }
 
   confirm(message: string, okCallBack: () => any) {
-    alertify.confirm(message, function (e: any) {
-      if (e) { okCallBack() } else { }
-    });
+    alertify.confirm(message, (e: any) => {
+      if (e) {
+        okCallBack();
+        this.success("Deleted Successfully!");
+      } else { }
+    }).set('modal', true).set({ title: "Warning!" });
   }
   success(message: string) {
     alertify.success(message);

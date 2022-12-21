@@ -1,3 +1,7 @@
 .section-cart {
   margin-top: 60px;
 }
+
+.card-body i .fa-solid .fa-trash-can :hover {
+  color: chocolate;
+}
