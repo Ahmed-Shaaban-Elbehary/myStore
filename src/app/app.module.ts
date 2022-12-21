@@ -22,7 +22,7 @@ import { ProductListComponent } from './Components/product-list/product-list.com
     ConfirmationComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
-    ProductListComponent
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../Services/alertify.service';
 import { CartService } from './../../Services/cart.service';
 import { ICart } from './../../Models/icart';
 import { IProduct } from '../../Models/iproduct';
@@ -11,7 +12,7 @@ export class ProductItemComponent {
   @Input() product: IProduct = {} as IProduct;
   @Output() cartProducts: ICart[] = [];
   Quantity: number = 0;
-  constructor(private cartSerivce: CartService) { }
+  constructor(private cartSerivce: CartService, private alertifyService: AlertifyService) { }
 
   Increment(): void {
     this.Quantity++;
@@ -35,10 +36,12 @@ export class ProductItemComponent {
       }
       this.cartSerivce.addToCart(cart)
       this.resetQuantity();
-      alert("Item Added To Cart Successfully!")
+      this.alertifyService.success("Item Added To Cart Successfully!");
+      //alert()
     }
     else {
-      alert("Please Select Min One Item!")
+      //alert("Please Select Min One Item!")
+      this.alertifyService.error("Please Select Min One Item!");
     }
   }
 
