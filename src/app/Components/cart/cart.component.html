@@ -46,20 +46,20 @@
                         class="form-control"
                         type="text"
                         [(ngModel)]="totalAmount"
-                        (ngModelChange)="validateName()"
+                        disabled
                       />
                     </div>
                     <div class="col-6">
-                      <span style="vertical-align: -webkit-baseline-middle"
+                      <!-- <span style="vertical-align: -webkit-baseline-middle"
                         ><i
                           class="fa-solid fa-plus me-3 pointer"
-                          (click)="Increment()"
+                          (click)="Increment(item.price)"
                         ></i>
                         <i
                           class="fa-solid fa-minus pointer"
-                          (click)="Decrement()"
+                          (click)="Decrement(item.price)"
                         ></i
-                      ></span>
+                      ></span> -->
                     </div>
                   </div>
                 </div>
@@ -79,11 +79,18 @@
               minlength="3"
               required
               [(ngModel)]="fullName"
+              (ngModelChange)="CheckText($event)"
               #name="ngModel"
               placeholder="(minimum 3 characters)"
             />
-            <small *ngIf="name.invalid && name.touched" class="text-danger">
+            <small
+              *ngIf="name.invalid && name.touched"
+              class="text-danger d-block mt-1"
+            >
               Please Enter Full Name (minimum 3 characters)
+            </small>
+            <small *ngIf="isText" class="text-danger">
+              please Enter Character Only.
             </small>
           </div>
           <div class="mb-3">
@@ -99,7 +106,10 @@
               placeholder="(minimum 6 characters)"
             />
           </div>
-          <small *ngIf="address.invalid && address.touched" class="text-danger">
+          <small
+            *ngIf="address.invalid && address.touched"
+            class="text-danger mt-1"
+          >
             Please Enter Address (minimum 6 characters)
           </small>
           <div class="mb-3">
@@ -111,14 +121,18 @@
               class="form-control"
               name="creditNumber"
               [(ngModel)]="creditNumber"
+              (ngModelChange)="CheckNumber($event)"
               #crdtNumber="ngModel"
               placeholder="(16-digit number)"
             />
             <small
               *ngIf="crdtNumber.invalid && crdtNumber.touched"
-              class="text-danger"
+              class="text-danger mt-1"
             >
               Please Enter Credit Number (minimum 6 characters)
+            </small>
+            <small *ngIf="isNumber" class="text-danger">
+              please Enter Numbers Only.
             </small>
             <div class="form-text">
               We'll never share your payment details with anyone else.

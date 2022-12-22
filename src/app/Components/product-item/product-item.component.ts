@@ -37,10 +37,8 @@ export class ProductItemComponent {
       this.cartSerivce.addToCart(cart)
       this.resetQuantity();
       this.alertifyService.success("Item Added To Cart Successfully!");
-      //alert()
     }
     else {
-      //alert("Please Select Min One Item!")
       this.alertifyService.error("Please Select Min One Item!");
     }
   }
