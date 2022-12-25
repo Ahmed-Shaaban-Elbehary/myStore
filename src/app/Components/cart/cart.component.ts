@@ -63,7 +63,6 @@ export class CartComponent implements OnInit {
     const isvalid = this.validator.preventNumber(event);
     if (!isvalid) {
       this.isText = true;
-      this.fullName = '';
     } else {
       this.isText = false;
     }
@@ -73,7 +72,6 @@ export class CartComponent implements OnInit {
     const isvalid = this.validator.preventText(event);
     if (!isvalid) {
       this.isNumber = true;
-      this.creditNumber = '';
     } else {
       this.isNumber = false;
     }
